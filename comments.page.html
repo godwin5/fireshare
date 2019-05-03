@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Comments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let comment of commentsRef | async">
+    <ion-avatar slot="start">
+      <img src="{{comment.Photo}}">
+    </ion-avatar>
+    <ion-label>
+      <h3>{{comment.Name}} </h3>
+      <p>{{comment.Comment}}</p>
+      <p *ngIf="comment.Timestamp">{{timesAgo(comment.Timestamp)}}</p>
+    </ion-label>
+    
+  </ion-item>
+</ion-content>
+
+<ion-footer>
+  <ion-item> 
+    <ion-input placeholder="Leave a Comment" (keyup.enter)="comment()" [(ngModel)]="input" ></ion-input>
+  </ion-item>
+</ion-footer>
