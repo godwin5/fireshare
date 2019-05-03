@@ -1,0 +1,45 @@
+<div id="signupLoader">
+  <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  <div id="loaderText" text-center>
+     <ion-note>{{loaderText}}</ion-note> <br>
+     <ion-note>{{percent}}</ion-note>
+  </div>
+</div>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div padding text-center>
+    <label for="file">
+      <img src="{{resultSrc}}" style="width:100px;height:100px;border-radius:100%;" id="profilePicture">
+    </label>
+    <input type="file" id="file" accept="image/*" hidden (change)="selectFile()" >
+  </div>
+  <ion-item>
+    <ion-label position="floating">Username</ion-label>
+    <ion-input type="text" [(ngModel)]="uname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="text" [(ngModel)]="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="pwd"></ion-input>
+  </ion-item>
+  <br>
+  <div text-center>
+    <ion-button (click)="signup()" fill="outline" shape="round">Signup</ion-button>
+  </div>
+  <br><br>
+  <div text-center>
+    <ion-note>OR</ion-note>
+  </div>
+  <br><br>
+  <div text-center style="font-weight: bold;">
+    Back to <ion-text color="primary" (click)="goto_login()">Login.</ion-text>
+  </div>
+</ion-content>
