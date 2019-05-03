@@ -1,0 +1,119 @@
+<div id="postLoader">
+  <ion-progress-bar type="indeterminate"></ion-progress-bar>
+</div>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create Post</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button icon-only [disabled]="postBtn" (click)="post()">
+        <ion-icon name="checkmark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item lines="none">
+      <ion-thumbnail slot="start">
+        <img src="{{url}}" style="width:60px;height:60px;border-radius:10px;" id="imgSrc" alt="" srcset="">
+      </ion-thumbnail>
+      <ion-label>
+        <textarea placeholder="Write Something" [(ngModel)]="input"
+          style="border:1px solid transparent;width: 100%;outline:none;"></textarea>
+      </ion-label>
+    </ion-item>
+    <br>
+    <ion-list-header>
+      More Options
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Disable Commenting</ion-label>
+      <ion-checkbox (ionChange)="checkS()" slot="end"></ion-checkbox>
+    </ion-item>
+    
+
+    <ion-list-header>
+      Filters
+    </ion-list-header>
+    <div class="container">
+      <div class="filter" (click)="filter('none','none','1')">
+        <img src="{{url}}" alt="" srcset="">
+      
+        <ion-icon id="1" name="checkmark-circle-outline"
+        style="color:#fff;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+      <div class="filter" (click)="filter('sepia','30%','2')">
+        <img src="{{url}}" style="filter:sepia(30%);" alt="" srcset="">
+        <ion-icon id="2" name="checkmark-circle-outline"
+        style="display: none;color:#fff;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+      <div class="filter" (click)="filter('invert','30%','3')">
+        <img src="{{url}}" style="filter:invert(30%);" alt="" srcset="">
+        <ion-icon id="3" name="checkmark-circle-outline"
+        style="display: none;color:#fff;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+      <div class="filter" (click)="filter('brightness','150%','4')">
+        <img src="{{url}}" style="filter:brightness(150%);" alt="" srcset="">
+        <ion-icon id="4" name="checkmark-circle-outline"
+        style="display: none;color:#fff;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+      <div class="filter" (click)="filter('invert','200%','5')">
+        <img src="{{url}}" style="filter:invert(200%);" alt="" srcset="">
+        <ion-icon id="5" name="checkmark-circle-outline"
+        style="display: none;color:#222;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+      <div class="filter" (click)="filter('contrast','70%','6')">
+        <img src="{{url}}" style="filter:contrast(70%);" alt="" srcset=""> 
+         <ion-icon id="6" name="checkmark-circle-outline"
+        style="display: none;color:#fff;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+      <div class="filter" (click)="filter('grayscale','100%','7')">
+        <img src="{{url}}" style="filter:grayscale(100%);" alt="" srcset="">
+        <ion-icon id="7" name="checkmark-circle-outline"
+        style="display: none;color:#fff;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+
+      <div class="filter" (click)="filter('grayscale','50%','8')">
+        <img src="{{url}}" style="filter:grayscale(50%);" alt="" srcset="">
+        <ion-icon id="8" name="checkmark-circle-outline"
+        style="display: none;color:#fff;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+      <div class="filter" (click)="filter('saturate','60%','9')">
+        <img src="{{url}}" style="filter:saturate(60%);" alt="" srcset="">
+        <ion-icon id="9" name="checkmark-circle-outline"
+        style="display: none;color:#fff;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+      <div class="filter" (click)="filter('sepia','80%','10')">
+        <img src="{{url}}" style="filter:sepia(80%);" alt="" srcset="">
+        <ion-icon id="10" name="checkmark-circle-outline"
+        style="display: none;color:#fff;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+
+      <div class="filter" (click)="filter('hue-rotate','90deg','11')">
+        <img src="{{url}}" style="filter:hue-rotate(90deg);" alt="" srcset="">
+        <ion-icon id="11" name="checkmark-circle-outline"
+        style="display: none;color:#fff;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+
+      <div class="filter" (click)="filter('sepia','150%','12')">
+        <img src="{{url}}" style="filter:sepia(150%);" alt="" srcset="">
+        <ion-icon id="12" name="checkmark-circle-outline"
+        style="display: none;color:#fff;position:absolute;font-size:xx-large;transform:translate(-50%,-50%);left:50%;top:50%;z-index: 1000;"></ion-icon>
+      
+      </div>
+    </div>
+  </ion-list>
+
+</ion-content>
