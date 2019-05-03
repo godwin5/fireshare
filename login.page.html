@@ -1,0 +1,32 @@
+<div id="loginLoader">
+<ion-progress-bar type="indeterminate"></ion-progress-bar>
+</div>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" [(ngModel)]="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" [(ngModel)]="pwd"></ion-input>
+  </ion-item>
+  <br><br>
+  <div text-center>
+    <ion-button fill="outline" shape="round" (click)="login()" >Login</ion-button>
+  </div>
+  <br><br>
+  <div text-center>
+    <ion-note>OR</ion-note>
+  </div>
+  <br><br>
+  <div text-center style="font-weight: bold;">
+    Create an account <ion-text color="primary" (click)="goto_signup()" >Here.</ion-text>
+  </div>
+</ion-content>
