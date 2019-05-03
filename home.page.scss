@@ -1,0 +1,90 @@
+
+
+
+body{
+	background-color: #fafafa;
+	padding: 60px;
+	font-family: 'Droid Sans', sans-serif;
+
+}
+
+a{
+  text-decoration: none;
+}
+
+.card{
+	background: #ffffff;
+	
+	border-radius: 3px;
+	width: 100%;
+	max-width: 600px;
+	margin: auto;
+}
+
+.card-header{
+  padding-top: 10px;
+  padding-left: 3px;
+  height: 40px;
+  padding-bottom: 20px;
+}
+
+.card-user-image{
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	vertical-align: middle;
+}
+
+.card-time{
+	float: right;
+	width: 80px;
+	padding-top:10px;
+	text-align: right;
+	color: #999;
+}
+.card-image{
+  margin-top: 20px;
+  img{
+    width: 100%;
+  }
+}
+.card-user-name{
+	margin-left:10px;
+	font-weight:bold;
+  color: #262626;
+}
+
+.card-content{
+  padding: 10px;
+}
+
+.Likes{
+  color: #999;
+  font-size: small;
+  font-weight: bold;
+}
+
+.card-content-user{
+  font-weight: bold;
+  color: #262626;
+}
+
+
+
+.time{
+  color:#999;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: small;
+}
+
+hr{
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+ 
+}
+
+

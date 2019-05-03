@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Fire Photo Share
+    </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button color="dark" size="large" icon-only (click)="gotoProfile()">
+        <ion-icon name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <div *ngFor="let post of postRef | async" class="posts">
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <ion-img style="background:#bbb" src="{{post.Photo}}"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h3>{{post.Name}}</h3>
+        <ion-note *ngIf="post.Timestamp">{{timesAgo(post.Timestamp)}}</ion-note>
+      </ion-label>
+      <ion-icon (click)="options(post.id,post.Post)" *ngIf="post.UID == userid" name="more" slot="end"></ion-icon>
+    </ion-item>
+    <ion-card-content>
+      <div *ngIf="post.Post.length>500">
+          <span [innerHTML]="post.Post.substring(0,499)"></span>
+          <span id="dots" style="color:#0ec254" (click)="readMore(post.id)" id="{{post.id+'readMore'}}">...read more</span>
+          <span style="display:none" id="{{post.id+'extra'}}" [innerHTML]="post.Post.substring(499)"></span>
+      </div>
+      <div *ngIf="post.Post.length<500">
+        <span [innerHTML]="post.Post"></span>
+        
+    </div>
+      <ion-note id="{{'likesCount'+post.id}}"></ion-note>
+    </ion-card-content>
+    <ion-item lines="full">
+      <ion-button (click)="heart(post.id)" icons-only fill="clear" shape="round">
+        <ion-icon id="{{post.id+'like'}}" name="ios-heart-empty"></ion-icon>
+      </ion-button>
+      <ion-button (click)="comment(post.id)" icons-only fill="clear" color="danger" shape="round">
+        <ion-icon name="ios-text"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </div> 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="gotoCreate()">
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+
+  <div class="card" *ngFor="let post of photoRef | async;">
+    <div class="card-header">
+      <img src="{{post.Photo}}" class="card-user-image">
+      <a class="card-user-name"> {{post.Name}} </a>
+
+      <div class="card-time" style="visibility:hidden"> 1 sem </div>
+    </div>
+
+    <div class="card-image">
+      <img src="{{post.Img}}" [ngStyle]="{ filter:post.FilterName +'('+post.FilterValue+')' }"
+        style="background:#ccc;height: 400px;" *ngIf="post.Type == 'equal'" />
+      <img src="{{post.Img}}" [ngStyle]="{ filter:post.FilterName +'('+post.FilterValue+')' }"
+        style="background:#ccc;height: 500px;" *ngIf="post.Type == 'height'" />
+      <img src="{{post.Img}}" [ngStyle]="{ filter:post.FilterName +'('+post.FilterValue+')' }"
+        style="background:#ccc;height: 250px;" *ngIf="post.Type == 'width'" />
+    </div>
+
+
+
+    <div class="card-content">
+      <ion-icon name="heart-empty" color="danger" style="font-size:x-large" (click)="heart(post.id)"
+        id="{{post.id+'like'}}"></ion-icon> &nbsp;
+      <ion-icon *ngIf="!post.Commenting" (click)="comment(post.id)" name="list" color="dark" style="font-size:x-large">
+      </ion-icon>
+      <ion-icon *ngIf="post.UID == userid" (click)="delete(post.id)" name="trash" color="dark"
+        style="font-size:x-large;float:right"></ion-icon>
+      <p class="Likes {{'likesCount'+post.id}}"></p>
+      <p *ngIf="post.Text"><a class="card-content-user">{{post.Name}}</a> &nbsp;
+        <span [innerHTML]="post.Text"></span> </p>
+      <p class="time">{{timesAgo(post.Timestamp)}}</p>
+      <hr>
+    </div>
+
+
+  </div>
+  <input type="file" style="display:none;" name="" id="photo" (change)="selectFile()">
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="selectPhoto()">
+      <ion-icon name="images"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
